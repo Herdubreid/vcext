@@ -1,0 +1,25 @@
+{
+  "name": "celin-ql",
+  "displayName": "Celin QL",
+  "description": "Celin Query Language Extension",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "cql",
+      "aliases": ["Celin Query Language", "cql"],
+      "extensions": [".cql"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "cql",
+      "scopeName": "source.cql",
+      "path": "./syntaxes/cql.tmLanguage.json"
+    }]
+  }
+}

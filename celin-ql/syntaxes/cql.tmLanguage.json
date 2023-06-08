@@ -1,0 +1,98 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Celin Query Language",
+  "patterns": [
+		{
+      "include": "#comments"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#entity"
+    },
+    {
+      "include": "#storage"
+    },
+    {
+      "include": "#constants"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#variables"
+    }
+  ],
+  "repository": {
+		"comments": {
+			"patterns": [
+				{
+					"begin": "\\/\\*",
+					"end": "\\*\\/",
+					"name": "comment.block"
+				}
+			]
+		},
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.cql",
+          "match": "\\b(all|any|and|or|by|desc|asc)\\b"
+        },
+        {
+          "name": "keyword.operator.cql",
+          "match": "(>=|<=|<>)|(\\b(in|bw)\\b)|[=\\^_!><]"
+        },
+        {
+          "name": "keyword.other.cql",
+          "match": "\\b(-demo|-v2|-max)\\b"
+        }
+      ]
+    },
+    "entity": {
+      "patterns": [
+        {
+          "name": "entity.name.function.cql",
+          "match": "\\b(sum|min|max|avg|count|count_distinct|avg_distinct|group)\\b"
+        }
+      ]
+    },
+    "strings": {
+			"name": "string.quoted.double.cql",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+				{
+					"name": "constant.character.escape.cql",
+          "match": "\\\\."
+        }
+      ]
+    },
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.numeric.cql",
+					"match": "[0-9]+"
+				}
+			]
+		},
+		"storage": {
+			"patterns": [
+				{
+					"name": "storage.type.cql",
+					"match": "\\b[fFvV]\\d{4,9}\\b"
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.parameter.cql",
+					"match": "#\\w+"
+				}				
+			]
+		}
+  },
+  "scopeName": "source.cql"
+}
